@@ -23,6 +23,15 @@ body {
     left: 20px;
     width: 200px;
 }
+
+
+/* Media query for small screens */
+@media screen and (max-width: 600px) {
+    .logo {
+        width: 150px; /* Adjust the width as needed */
+    }
+}
+
  /* Style for the hyperlink */
         #guidelines-link {
             position: absolute;
@@ -169,7 +178,7 @@ button:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* Center the modal */
-    width: 60%; /* Define the width of the modal (adjust as necessary) */
+    width: 80%; /* Define the width of the modal (adjust as necessary) */
     max-width: 800px; /* Set a maximum width to prevent it from getting too wide */
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.8); /* Dark background with some transparency */
@@ -178,6 +187,14 @@ button:hover {
     z-index: 20; /* Ensure it stays above other content */
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5); /* Optional shadow for emphasis */
 }
+
+/* Media query for small screens */
+@media screen and (max-width: 600px) {
+    #legal-text {
+       font-size: 20px;
+    }
+}
+
 
 .legal-text {
     font-size: 18px; /* Set a readable font size */
