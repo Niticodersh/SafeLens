@@ -259,7 +259,7 @@ window.generateCertificate = function() {
 
     // Add the SafeLens logo
     const logo = new Image();
-    logo.src = 'SafeLens logo.png'; // Make sure this path is correct
+    logo.src = 'SafeLensLogo.png'; // Make sure this path is correct
     logo.onload = function() {
         // Proceed with drawing only after the logo is loaded
 
