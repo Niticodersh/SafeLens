@@ -1,89 +1,102 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeLens - Content Safety Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Logo -->
+    <img src="SafeLens logo.png" alt="SafeLens Logo" class="logo"> <!-- Add your logo image here -->
+    <a id="guidelines-link" href="guidelines.pdf" target="_blank">Legal Guidelines</a>
+        <a id="login-link" href="#" onclick="login()">Login</a>
+    <a id="logout-link" href="#" onclick="logout()" class="hidden">Logout</a>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/10.14.1/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/10.14.1/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/10.14.1/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/10.14.1/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/10.14.1/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/10.14.1/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/10.14.1/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/10.14.1/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/10.14.1/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/10.14.1/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+    <!-- Welcome Message -->
+    <div class="welcome-message">
+        <h1>Welcome to SafeLens</h1>
+        <h3>Ensuring Safe Online Content for All</h3>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+    <!-- Input Section -->
+    <div class="input-section" id="input-section">
+        <div id="contribute-message" class="modal fade-in">
+            <span style="font-weight: bold; font-size: 28px">Contribute to dataset curation</span>
+            <br>
+            <button onclick="proceedToLegalGuidelines()">Contribute</button>
+        </div>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+        <!-- Legal Notice Modal -->
+        <div id="legal-notice" class="hidden modal">
+            <span style="font-weight: bold; font-size: 24px">Please review and accept our legal notice to contribute</span>
+            <br><br>
+            <p style="font-size: 18px; line-height: 1.5;">
+                By contributing to SafeLens, you acknowledge that your submissions adhere to our platform's guidelines and do not infringe upon any terms of service.
+                Content that targets individuals will not be accepted.
+                SafeLens retains the authority to review and remove any content deemed inappropriate or against the guidelines .
+                <br>
+                You can view the full guidelines <a href="guidelines.pdf" target="_blank">here</a>.
+            </p>
+            <br>
+            <button onclick="acceptLegalNotice()">I Accept</button>
+            <button onclick="declineLegalNotice()">I Don't Accept</button>
+        </div>
+
+
+       <div id="class-selection" class="hidden modal">
+            <span style="font-weight: bold; font-size: 24px">Select the class to which you want to contribute</span>
+            <br>
+            <button onclick="selectClass('Safe')">Safe</button>
+            <button onclick="selectClass('Unsafe')">Unsafe</button>
+        </div>
+
+
+        <div id="modality-selection" class="hidden modal">
+            <span style="font-weight: bold;  font-size: 24px">Select the modality</span>
+            <br>
+            <button onclick="showTextInput()">Text</button>
+            <button onclick="showImageInput()">Image</button>
+            <button onclick="showAudioInput()">Audio</button>
+        </div>
+
+        <div id="text-input" class="hidden">
+            <span style="font-weight: bold; font-size: 24px">Write your content</span>
+            <br>
+            <input type="text" class="text-input" id="textContent" placeholder="Type here..." onkeypress="handleEnter(event)">
+        </div>
+
+        <div id="image-upload" class="hidden">
+            <span style="font-weight: bold; font-size: 24px">Upload Image</span>
+            <br>
+            <input type="file" id="imageUpload" accept="image/*" class="text-input">
+        </div>
+
+        <div id="audio-upload" class="hidden">
+            <span style="font-weight: bold; font-size: 24px">Upload Audio</span>
+            <br>
+            <input type="file" id="audioUpload" accept="audio/*" class="text-input">
+        </div>
+
+        <div id="error-message" class="error-message"></div>
+        <button id="submit-button" class="hidden" onclick="submitContent()">Submit</button>
+        <div id="thank-you-message" class="hidden thank-you"></div>
+    </div>
+    <!-- Certificate Modal -->
+    <div id="certificate-modal" class="hidden modal">
+        <span style="font-weight: bold; font-size: 24px">Would you like to receive a Certificate of Appreciation?</span>
+        <br><br>
+        <input type="text" id="userName" class="text-input" placeholder="Your Name" />
+        <br><br>
+        <button onclick="generateCertificate()">Generate Certificate</button>
+        <button id="skipButton" onclick="skipCertificate()">Skip</button>
+        <br><br>
+        <canvas id="certificateCanvas" class="hidden"></canvas>
+        <a id="downloadCertificateLink" class="hidden" download="Certificate_of_Appreciation.png">Download Certificate</a>
+        <br><br>
+        <button id="backHomeButton" class="hidden" onclick="returnToInitialState()">Back to Home</button>
+    </div>
+   <script type="module" src="app.js"></script>
+
+</body>
 </html>
