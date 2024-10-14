@@ -24,10 +24,3 @@ jobs:
         echo "FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}" >> .env
         echo "FIREBASE_MEASUREMENT_ID=${{ secrets.FIREBASE_MEASUREMENT_ID }}" >> .env
       
-    - name: Deploy to Firebase Hosting
-      uses: FirebaseExtended/action-hosting-deploy@v0
-      with:
-        repoToken: "${{ secrets.GITHUB_TOKEN }}"
-        firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
-        channelId: live  # You can change this to "preview" for preview environments
-        projectId: "${{ secrets.FIREBASE_PROJECT_ID }}"
