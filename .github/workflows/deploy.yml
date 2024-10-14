@@ -13,9 +13,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Install dependencies
-      run: npm install
-
     - name: Inject Firebase environment variables
       run: |
         echo "FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}" >> .env
@@ -27,5 +24,10 @@ jobs:
         echo "FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}" >> .env
         echo "FIREBASE_MEASUREMENT_ID=${{ secrets.FIREBASE_MEASUREMENT_ID }}" >> .env
       
-    - name: Build and Deploy to GitHub Pages
-      run: npm run build # or your build command
+    - name: Deploy to Firebase Hosting
+      uses: FirebaseExtended/action-hosting-deploy@v0
+      with:
+        repoToken: "${{ secrets.GITHUB_TOKEN }}"
+        firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+        channelId: live  # You can change this to "preview" for preview environments
+        projectId: "${{ secrets.FIREBASE_PROJECT_ID }}"
